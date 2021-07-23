@@ -17,10 +17,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         // Order is important - css-loader first then style-loader
         // BUT the array loads in reverse order :S
-        use: ["style-loader", "css-loader"],
+        use: [
+          "style-loader", //3. Inject styles into DOM
+          "css-loader", //2. Turns css into commonjs
+          "sass-loader", //1. Turns sass into css
+        ],
       },
     ],
   },
