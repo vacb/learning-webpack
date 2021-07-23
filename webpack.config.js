@@ -14,4 +14,14 @@ module.exports = {
     // __dirname takes current directory path for the machine, loaded with every node script
     path: path.resolve(__dirname, "dist"),
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        // Order is important - css-loader first then style-loader
+        // BUT the array loads in reverse order :S
+        use: ["style-loader", "css-loader"],
+      },
+    ],
+  },
 };
