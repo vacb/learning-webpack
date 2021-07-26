@@ -5,7 +5,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 // To use config from this file, add to package.json
 module.exports = {
   // Default config for entry and output if no config file had been set up
-  entry: "./src/index.js",
+  entry: {
+    main: "./src/index.js",
+    vendor: "./src/vendor.js",
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/template.html",
